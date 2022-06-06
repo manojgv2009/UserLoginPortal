@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<meta charset="ISO-8859-1">
+<title>User Information Page</title>
+
+<style>
+body {font-family: Calibri; text-align:center;}
+
+/* table, th, td {
+            border: 1px solid black;
+         } */
+         
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+</style>
+</head>
+<body>
+<script>
+   $(document).ready(function () {
+      var currentDate = new Date();
+      $('.disableFuturedate').datepicker({
+      format: 'dd/mm/yyyy',
+      autoclose:true,
+      endDate: "currentDate",
+      maxDate: currentDate
+      }).on('changeDate', function (ev) {
+         $(this).datepicker('hide');
+      });
+      $('.disableFuturedate').keyup(function () {
+         if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9^-]/g, '');
+         }
+      });
+   });
+</script>
+	<h1 style="text-align:center">Welcome <i><span th:text ="${firstName}"></span></i></h1>
+	
+	<div style="text-align:right;">
+		<button type="button" th:onclick="window.location.href='/editAccountInfo'">Edit Account Info</button>
+	
+		<button type="button" th:onclick="window.location.href='/logout'">Logout</button>
+	</div>
+	
+	<div>
+		<table style="margin-left: auto;margin-right: auto;">
+			<thead>
+				<tr style="background-color:cadetblue;">
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<!-- <th>Password</th> -->
+					<th>DOB</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td th:text="${userDetails.firstName}"> </td>
+					<td th:text="${userDetails.lastName}"> </td>
+					<td th:text="${userDetails.email}"> </td>
+					<!-- <td th:text="${userDetails.password}"> </td> -->
+					<td th:text="${userDetails.birthday}"> </td>
+				</tr>
+			</tbody>
+		</table>
+	
+	</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Account Information Page</title>
+<style>
+body {font-family: Calibri; }
+
+.container {
+  padding: 16px;
+}
+
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  
+  opacity: 0.9;
+}
+
+
+input[type=text], input[type=password], input[type=email], input[type=date] {
+  width: 46%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.signupbtn {
+  float: left;
+  width: 50%;
+}
+
+</style>
+
+</head>
+<body>
+	<h2 style="text-align:center">Edit Account Information</h2>
+	<div style="text-align:right">
+	<button type="button" th:onclick="window.location.href='/userInformation'">Account Info Page</button>
+	</div>
+	<hr>
+	<form style="margin-left:35%;" action="#" th:action="@{/edit_information}" method="post" th:object="${user}">
+	  <div class="container">
+	
+		<label class="textLeft"><b>First Name</b></label><br>
+	    <input type="text" placeholder="Enter First Name" name="firstName" th:field="${userDetails.firstName}" ><br>
+	    
+	    <label class="textLeft"><b>Last Name</b></label><br>
+	    <input type="text" placeholder="Enter Last Name" name="lastName" th:field="${userDetails.lastName}" ><br>
+	
+	    <label class="textLeft"><b>Email</b></label><br>
+	    <input type="email" placeholder="Enter Email" name="email" th:field="${userDetails.email}" readOnly><br>
+	
+	    <label class="textLeft"><b>Password</b></label><br>
+	    <input type="password" placeholder="Enter Password" name="psw" th:field="${userDetails.password}" ><br>
+	    
+	    <label class="textLeft"><b>DOB</b></label><br>
+	    <input type="date" name="psw" th:field="${userDetails.birthday}" ><br>
+	
+	    <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
+	    <input type="password" placeholder="Repeat Password" name="psw-repeat" required> -->
+	
+	    <div class="clearfix">
+	      <button type="submit" class="signupbtn">Save</button>
+	    </div>
+	  </div>
+	</form>
+	<!-- <form action="#" th:action="@{/edit_information}" method="post" th:object="${user}">
+		<table style="margin-left:auto;margin-right:auto;">
+		<tr>
+			<td><label>First Name</label></td>
+			<td><input type="text" th:field="${userDetails.firstName}" required /></td>
+		</tr>
+		<tr>
+			<td><label>Last Name</label></td>
+			<td><input type="text" th:field="${userDetails.lastName}" required /></td>
+		</tr>
+		<tr>
+			<td><label>Email Id</label></td>
+			<td><input type="email" th:field="${userDetails.email}" readOnly /></td>
+		</tr>
+		<tr>
+			<td><label>Password</label></td>
+			<td /><input type="password" th:field="${userDetails.password}" /></td>
+		</tr>
+		<tr>
+			<td><label>DOB</label></td>
+			<td><input type="date" th:field="${userDetails.birthday}" required /></td>
+		</tr>
+		</table>
+    	<div><button type="submit" style="align:center">Save Changes</button></div>
+    </form> -->
+</body>
+</html>

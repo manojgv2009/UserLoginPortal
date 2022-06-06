@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Login Page</title>
+<style>
+body {font-family: Calibri; text-align:center;}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 25em;
+  opacity: 0.9;
+}
+
+</style>
+</head>
+<body>
+	<h1 style="text-align:center">Welcome to the User Login/Registration Portal</h1>
+	<h2 style="text-align:center">Please choose an option</h2>
+	
+	<div>
+	<button type="button" th:onclick="window.location.href='/register'">Sign Up</button>
+	<button type="button" th:onclick="window.location.href='/login'">Login</button>
+	</div>
+</body>
+</html>

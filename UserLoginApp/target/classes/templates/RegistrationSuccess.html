@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Success</title>
+<style>
+body {font-family: Calibri; text-align:center;}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+</style>
+</head>
+<body>
+	<h2 style="text-align:center">Account has been created Successfully</h2>
+	<hr>
+	<h3>Please proceed to Login to your account</h3>
+	<div style="text-align:right;">
+		
+		<button type="button" th:onclick="window.location.href='/'">Home Page</button>
+	</div>
+	
+	<!-- <h3> <a href="/login"> Click Here</a> to Login</h3> -->
+	<button type="button" th:onclick="window.location.href='/login'">Click Here to Login</button>
+</body>
+</html>

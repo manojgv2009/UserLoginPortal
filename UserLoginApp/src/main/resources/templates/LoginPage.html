@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Login Page</title>
+
+<style>
+body {font-family: Calibri; text-align:center;}
+</style>
+</head>
+<body>
+	<h1>User Login Page</h1>
+	
+	<div style="text-align:right;">
+		<a href="/">Home Page</a>
+	</div>
+	
+	<form th:action="@{/userInformation}" method="post">
+	<table style="margin-left:auto;margin-right:auto;">
+	<tr>
+		<td><label>Email Id</label></td>
+		<td><input type="text" th:name="mail1" required /></td>
+	</tr>
+	<tr>
+		<td><label>Password</label></td>
+		<td><input type="password" required /></td>
+	</tr>
+	</table>
+	<div><button type="submit" style="align:center">Login</button></div>
+	</form>
+</body>
+</html>
